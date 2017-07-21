@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Camera } from "@ionic-native/camera";
+import { IonicStorageModule } from '@ionic/storage';
+import { File, Entry, FileError } from '@ionic-native/file';
+import { Storage } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -13,6 +16,7 @@ import { AddPlacePage } from "../pages/add-place/add-place";
 import { PlacePage } from "../pages/place/place";
 import { SetLocationPage } from "../pages/set-location/set-location";
 import { PlacesService } from "../services/places-service";
+import { UsersPage } from "../pages/users/users";
 
 @NgModule({
     declarations: [
@@ -20,11 +24,13 @@ import { PlacesService } from "../services/places-service";
         HomePage,
         AddPlacePage,
         PlacePage,
-        SetLocationPage
+        SetLocationPage,
+        UsersPage
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
+        IonicStorageModule.forRoot(),
         AgmCoreModule.forRoot({
             // https://developers.google.com/maps/documentation/javascript/get-api-key
             apiKey: "AIzaSyDXPzSApAzJfRzMCfOD_sBlS9rMDIYpAec"
@@ -36,7 +42,8 @@ import { PlacesService } from "../services/places-service";
         HomePage,
         AddPlacePage,
         PlacePage,
-        SetLocationPage
+        SetLocationPage,
+        UsersPage
     ],
     providers: [
         StatusBar,
@@ -44,6 +51,7 @@ import { PlacesService } from "../services/places-service";
         Geolocation,
         Camera,
         PlacesService,
+        File,
         { provide: ErrorHandler, useClass: IonicErrorHandler }
     ]
 })

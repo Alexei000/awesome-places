@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let place of places" (click)="onOpenPlace(place)">
+  <ion-card *ngFor="let place of places; let i = index" (click)="onOpenPlace(place, i)">
     <img [src]="place.imageUrl" />
     <ion-card-content text-center>
       <ion-card-title>
@@ -21,4 +21,6 @@
       <p>{{ place.description }}</p>
     </ion-card-content>
   </ion-card>
+
+  <button ion-button [navPush]="usersPage">To users</button>
 </ion-content>
