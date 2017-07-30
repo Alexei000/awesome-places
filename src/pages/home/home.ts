@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, Platform } from 'ionic-angular';
 import { AddPlacePage } from "../add-place/add-place";
 import { Place } from "../../models/place";
 import { PlacesService } from "../../services/places-service";
@@ -20,7 +20,10 @@ export class HomePage implements OnInit {
     constructor(
         public navCtrl: NavController,
         private placeService: PlacesService,
-        private modalCtrl: ModalController) {
+        private modalCtrl: ModalController,
+        private platform: Platform) {
+
+        console.log(this.platform.platforms());
     }
 
     ngOnInit(): void {

@@ -29,7 +29,9 @@ import { UsersPage } from "../pages/users/users";
     ],
     imports: [
         BrowserModule,
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(MyApp, {
+
+        }),
         IonicStorageModule.forRoot(),
         AgmCoreModule.forRoot({
             // https://developers.google.com/maps/documentation/javascript/get-api-key
